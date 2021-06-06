@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vish_Tech_Ecom.Core.Data;
+using Vish_Tech_Ecom.Infra.Abstraction;
+using Vish_Tech_Ecom.Infra.Implementation;
 
 namespace Vish_Tech_Ecom.API
 {
@@ -43,6 +45,8 @@ namespace Vish_Tech_Ecom.API
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DatabaseConection"));
             });
+
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddSwaggerGen(c =>
             {

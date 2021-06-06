@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Vish_Tech_Ecom.Core\Vish_Tech_Ecom.Core.csproj" />
+    <ProjectReference Include="..\Vish_Tech_Ecom.Infra\Vish_Tech_Ecom.Infra.csproj" />
   </ItemGroup>
 
 </Project>

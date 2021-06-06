@@ -1596,6 +1596,19 @@
         "runtime": {
           "bin/placeholder/Vish_Tech_Ecom.Core.dll": {}
         }
+      },
+      "Vish_Tech_Ecom.Infra/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Vish_Tech_Ecom.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Vish_Tech_Ecom.Infra.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Vish_Tech_Ecom.Infra.dll": {}
+        }
       }
     }
   },
@@ -5903,6 +5916,11 @@
       "type": "project",
       "path": "../Vish_Tech_Ecom.Core/Vish_Tech_Ecom.Core.csproj",
       "msbuildProject": "../Vish_Tech_Ecom.Core/Vish_Tech_Ecom.Core.csproj"
+    },
+    "Vish_Tech_Ecom.Infra/1.0.0": {
+      "type": "project",
+      "path": "../Vish_Tech_Ecom.Infra/Vish_Tech_Ecom.Infra.csproj",
+      "msbuildProject": "../Vish_Tech_Ecom.Infra/Vish_Tech_Ecom.Infra.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5911,7 +5929,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 5.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.4",
       "Swashbuckle.AspNetCore >= 5.6.3",
-      "Vish_Tech_Ecom.Core >= 1.0.0"
+      "Vish_Tech_Ecom.Core >= 1.0.0",
+      "Vish_Tech_Ecom.Infra >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5947,6 +5966,9 @@
           "projectReferences": {
             "F:\\New Tuto\\Project\\Prod\\Vish_Tech_Ecom\\Vish_Tech_Ecom.Core\\Vish_Tech_Ecom.Core.csproj": {
               "projectPath": "F:\\New Tuto\\Project\\Prod\\Vish_Tech_Ecom\\Vish_Tech_Ecom.Core\\Vish_Tech_Ecom.Core.csproj"
+            },
+            "F:\\New Tuto\\Project\\Prod\\Vish_Tech_Ecom\\Vish_Tech_Ecom.Infra\\Vish_Tech_Ecom.Infra.csproj": {
+              "projectPath": "F:\\New Tuto\\Project\\Prod\\Vish_Tech_Ecom\\Vish_Tech_Ecom.Infra\\Vish_Tech_Ecom.Infra.csproj"
             }
           }
         }

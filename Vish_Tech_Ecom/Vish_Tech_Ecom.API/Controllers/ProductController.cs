@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Vish_Tech_Ecom.Core.Data;
 using Vish_Tech_Ecom.Core.Entities;
+using Vish_Tech_Ecom.Infra.Abstraction;
 
 namespace Vish_Tech_Ecom.API.Controllers
 {
@@ -13,24 +14,27 @@ namespace Vish_Tech_Ecom.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly AppDbContext _appDbContext;
+        private readonly IProductRepository _productRepository;
 
-        public ProductController(AppDbContext appDbContext)
+        public ProductController(IProductRepository productRepository)
         {
-            _appDbContext = appDbContext;
+            _productRepository = productRepository;
         }
         
         [HttpGet]
-        public ActionResult<List<Product>> GetProducts()
+        public async Task< ActionResult<List<Product>>> GetProducts()
         {
-           // return _appDbContext.Products.ToList();
-           return NoContent();
+
+            var products = await _productRepository.GetProductListAsync();
+           return Ok(products);
+           
         }
 
         [Route("{id}")]
-        public ActionResult<Product> GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return _appDbContext.Products.FirstOrDefault(a => a.Id == id);
+            var product = await _productRepository.GetSingleProductAsync(id);
+            return Ok(product);
         }
     }
 }
