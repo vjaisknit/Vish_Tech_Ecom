@@ -23,22 +23,13 @@ namespace Vish_Tech_Ecom.API
         {
             Configuration = configuration;
         }
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                                  builder =>
-                                  {
-                                      builder.WithOrigins("http://example.com",
-                                                          "http://www.contoso.com")
-                                                          .AllowAnyHeader();
-                                  });
-            });
+            
             services.AddControllers();
 
             services.AddDbContext<AppDbContext>(options =>
@@ -65,7 +56,7 @@ namespace Vish_Tech_Ecom.API
             }
 
             app.UseRouting();
-            app.UseCors(MyAllowSpecificOrigins);
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

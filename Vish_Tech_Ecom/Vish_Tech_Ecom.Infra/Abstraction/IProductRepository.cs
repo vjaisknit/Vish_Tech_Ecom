@@ -10,5 +10,7 @@ namespace Vish_Tech_Ecom.Infra.Abstraction
     {
         Task<Product> GetSingleProductAsync(int Id);
         Task<IReadOnlyList<Product>> GetProductListAsync();
+        Task<IReadOnlyList<ProductType>> GetProductTypeListAsync();
+        Task<IReadOnlyList<ProductBrand>> GetProductBrandListAsync();
     }
 }

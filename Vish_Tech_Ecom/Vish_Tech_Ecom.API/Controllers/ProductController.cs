@@ -30,6 +30,24 @@ namespace Vish_Tech_Ecom.API.Controllers
            
         }
 
+        [HttpGet("brands")]
+        public async Task<ActionResult<List<ProductBrand>>> GetProductBrands()
+        {
+
+            var productBrands = await _productRepository.GetProductBrandListAsync();
+            return Ok(productBrands);
+
+        }
+        [HttpGet("productType")]
+        public async Task<ActionResult<List<ProductType>>> GetProductType()
+        {
+
+            var productproductType = await _productRepository.GetProductTypeListAsync();
+            return Ok(productproductType);
+
+        }
+
+        [HttpGet]
         [Route("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
