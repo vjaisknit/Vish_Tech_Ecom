@@ -14,18 +14,24 @@ namespace Vish_Tech_Ecom.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IGenericRepository<Product> _productRepository;
+        private readonly IGenericRepository<ProductBrand> _brandRepository;
+        private readonly IGenericRepository<ProductType> _productType;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(IGenericRepository<Product> productRepository,
+                                 IGenericRepository<ProductBrand> brandRepository,
+                                 IGenericRepository<ProductType> productType)
         {
             _productRepository = productRepository;
+            _brandRepository = brandRepository;
+            _productType = productType;
         }
         
         [HttpGet]
         public async Task< ActionResult<List<Product>>> GetProducts()
         {
 
-            var products = await _productRepository.GetProductListAsync();
+            var products = await _productRepository.GetAllListAsync();
            return Ok(products);
            
         }
@@ -34,7 +40,7 @@ namespace Vish_Tech_Ecom.API.Controllers
         public async Task<ActionResult<List<ProductBrand>>> GetProductBrands()
         {
 
-            var productBrands = await _productRepository.GetProductBrandListAsync();
+            var productBrands = await _brandRepository.GetAllListAsync();
             return Ok(productBrands);
 
         }
@@ -42,7 +48,7 @@ namespace Vish_Tech_Ecom.API.Controllers
         public async Task<ActionResult<List<ProductType>>> GetProductType()
         {
 
-            var productproductType = await _productRepository.GetProductTypeListAsync();
+            var productproductType = await _productType.GetAllListAsync();
             return Ok(productproductType);
 
         }
@@ -51,7 +57,7 @@ namespace Vish_Tech_Ecom.API.Controllers
         [Route("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _productRepository.GetSingleProductAsync(id);
+            var product = await _productRepository.GetByIdAsync(id);
             return Ok(product);
         }
     }

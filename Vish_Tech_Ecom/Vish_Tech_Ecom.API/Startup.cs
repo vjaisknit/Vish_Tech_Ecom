@@ -38,6 +38,7 @@ namespace Vish_Tech_Ecom.API
             });
 
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             services.AddSwaggerGen(c =>
             {
