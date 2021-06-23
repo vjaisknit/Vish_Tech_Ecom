@@ -31,7 +31,7 @@ namespace Vish_Tech_Ecom.API.Controllers
         public async Task< ActionResult<List<Product>>> GetProducts()
         {
 
-            var products = await _productRepository.GetAllListAsync();
+            var products = await _productRepository.GetAsync(includeProperties: "ProductBrand,ProductType");
            return Ok(products);
            
         }
@@ -57,7 +57,7 @@ namespace Vish_Tech_Ecom.API.Controllers
         [Route("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _productRepository.GetByIdAsync(id);
+            var product = await _productRepository.GetAsync(filter: a=> a.Id == id,includeProperties: "ProductBrand,ProductType");
             return Ok(product);
         }
     }
